@@ -12,7 +12,7 @@ OkHttp3 Metrics For Prometheus
 
 ``` xml
 <dependency>
-	<groupId>com.github.hiwepy</groupId>
+	<groupId>io.github.easy4j</groupId>
 	<artifactId>okhttp3-metrics-prometheus</artifactId>
 	<version>${project.version}</version>
 </dependency>

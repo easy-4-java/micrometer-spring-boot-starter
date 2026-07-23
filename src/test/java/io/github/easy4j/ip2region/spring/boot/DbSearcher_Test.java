@@ -1,4 +1,4 @@
-package com.github.hiwepy.ip2region.spring.boot;
+package io.github.easy4j.ip2region.spring.boot;
 
 import java.io.ByteArrayOutputStream;
 

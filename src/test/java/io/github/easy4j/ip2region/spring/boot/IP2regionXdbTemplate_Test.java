@@ -1,38 +1,26 @@
-package com.github.hiwepy.ip2region.spring.boot;
+package io.github.easy4j.ip2region.spring.boot;
 
-import java.io.ByteArrayOutputStream;
-
+import io.github.easy4j.ip2region.spring.boot.ext.RegionAddress;
+import io.github.easy4j.ip2region.spring.boot.ext.RegionEnum;
 import org.junit.Before;
 import org.junit.Test;
 import org.nutz.plugins.ip2region.DBReader;
 import org.nutz.plugins.ip2region.DbConfig;
 import org.nutz.plugins.ip2region.DbSearcher;
-
-import com.github.hiwepy.ip2region.spring.boot.ext.RegionAddress;
-import com.github.hiwepy.ip2region.spring.boot.ext.RegionEnum;
 import org.nutz.plugins.ip2region.impl.ByteArrayDBReader;
 import org.springframework.util.FileCopyUtils;
 
-public class IP2regionTemplate_Test {
+import java.io.ByteArrayOutputStream;
 
-	IP2regionTemplate template = null;
+public class IP2regionXdbTemplate_Test {
+
+	IP2regionXdbTemplate template = null;
 
 	@Before
 	public void setUp()  throws Exception {
-		DbConfig dbConfig = new DbConfig(8192);
-		dbConfig.setIndexBlockSize(4096);
-
-		// reader = new RandomAccessFileDBReader(new RandomAccessFile(resource.getFile(), "r"));
-
-		ByteArrayOutputStream output = new ByteArrayOutputStream();
-		FileCopyUtils.copy(this.getClass().getClassLoader().getResourceAsStream("ip2region_new.db"), output);
-		DBReader reader = new ByteArrayDBReader(output.toByteArray());
-
-		DbSearcher searcher = new DbSearcher(dbConfig, reader);
-
-		template = new IP2regionTemplate(searcher);
+		String dbPath = "D:\\tmp\\ip2region-2.11.0\\data\\ip2region.xdb";
+		template = new IP2regionXdbTemplate(dbPath);
 	}
-
 
 	@Test
 	public void templateTest() throws Exception {
